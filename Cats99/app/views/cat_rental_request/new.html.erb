@@ -1,0 +1,20 @@
+<%cat = Cat.find(params[:cat_id])%>
+<h1>Reserve <%cat.name%>!</h1>
+
+<form action='cat_cat_rental_requests(cat.id)' method='POST'>
+  <input type='hidden' name='rental[cat_id]' value=<%cat.id%>>
+
+  <label>Start:
+    <input type='date' name='rental[start_date]' value='<%=cat.birth_date%>'>
+  </label>
+
+  <br>
+
+  <label>End:
+    <input type='date' name='rental[end_date]' value='<%=cat.birth_date%>'>
+  </label>
+
+  <br>
+
+  <input type='submit' value='RENT!'>
+</form>

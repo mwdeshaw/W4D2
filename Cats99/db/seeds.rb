@@ -14,4 +14,11 @@ ActiveRecord::Base.transaction do
   cat3 = Cat.create!(name: "Franklin", birth_date: "2016/01/20", color: "black", sex: "M", description: "Mischevious cat.")
   cat4 = Cat.create!(name: "Big Pappi", birth_date: "2014/08/20", color: "blue", sex: "M", description: "Likes to rap.")
   cat5 = Cat.create!(name: "Artemis", birth_date: "2019/03/25", color: "white", sex: "F", description: "Goddess feline.")
+
+
+  CatRentalRequest.destroy_all
+
+  rental1 = CatRentalRequest.create!(cat_id: cat1.id, start_date: Date.current, end_date: Date.current.next_month)
+  rental2 = CatRentalRequest.create!(cat_id: cat4.id, start_date: Date.current.last_year, end_date: Date.current.next_year, status: 'APPROVED')
+
 end

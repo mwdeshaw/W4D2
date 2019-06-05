@@ -28,4 +28,8 @@ class Cat < ApplicationRecord
     current = Date.current
     (current - birth_date).to_i / 365
   end
+
+  has_many :rental_requests,
+    foreign_key: :cat_id,
+    class_name: :CatRentalRequest
 end
